@@ -103,7 +103,7 @@ public class Atualizar extends ActionBarActivity{
                     Despesas des = Despesas.findById(Despesas.class, u);
 
                     des.setDespesa(desp.getText().toString());
-                  des.setData_vencimento(dt );
+                    des.setData_vencimento(dt );
                     des.setValor(valor1);
                     des.setStatus("Pendente");
                     des.save();
