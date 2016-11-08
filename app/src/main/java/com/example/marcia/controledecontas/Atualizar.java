@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
@@ -89,7 +90,7 @@ public class Atualizar extends ActionBarActivity{
 
                 valor.setText(""+listaDespesas.get(ii).getValor());
 
-                mostra.setText(listaDespesas.get(ii).getData_vencimento());
+               // mostra.setText(listaDespesas.get(ii).getData_vencimento());
             }
         }
 
@@ -103,7 +104,7 @@ public class Atualizar extends ActionBarActivity{
                     Despesas des = Despesas.findById(Despesas.class, u);
 
                     des.setDespesa(desp.getText().toString());
-                  des.setData_vencimento(dt );
+                //  des.setData_vencimento(dt );
                     des.setValor(valor1);
                     des.setStatus("Pendente");
                     des.save();
@@ -119,7 +120,7 @@ public class Atualizar extends ActionBarActivity{
                     Despesas des = Despesas.findById(Despesas.class, u);
 
                     des.setDespesa(desp.getText().toString());
-                    des.setData_vencimento(dt );
+                  //  des.setData_vencimento(dt );
                     des.setValor(valor1);
                     des.setStatus("OK");
                     des.save();
@@ -173,6 +174,11 @@ public class Atualizar extends ActionBarActivity{
                 dt = +dia+"/"+mes+"/"+ano;
             }
             mostra.setText(dt);
+
+            SimpleDateFormat d = new SimpleDateFormat("EEE, MMM d, ''yy");
+
+            d.format(dt);
+            mostra.setText((CharSequence) d);
 
         }
 

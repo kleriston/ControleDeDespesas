@@ -1,5 +1,7 @@
 package com.example.marcia.controledecontas;
 
+import android.renderscript.Sampler;
+
 import com.orm.SugarRecord;
 
 import java.util.Date;
@@ -11,13 +13,14 @@ public class Despesas extends SugarRecord {
 
     String despesa;
     double valor;
-    String data_vencimento;
+
+    Date data_vencimento;
     String status;
 
     public Despesas() {
     }
 
-    public Despesas(String despesa, double valor, String data_vencimento, String status) {
+    public Despesas(String despesa, double valor, Date data_vencimento, String status) {
         this.despesa = despesa;
         this.valor = valor;
         this.data_vencimento = data_vencimento;
@@ -41,11 +44,11 @@ public class Despesas extends SugarRecord {
         this.valor = valor;
     }
 
-    public String getData_vencimento() {
+    public Date getData_vencimento() {
         return data_vencimento;
     }
 
-    public void setData_vencimento(String data_vencimento) {
+    public void setData_vencimento(Date data_vencimento) {
         this.data_vencimento = data_vencimento;
     }
 

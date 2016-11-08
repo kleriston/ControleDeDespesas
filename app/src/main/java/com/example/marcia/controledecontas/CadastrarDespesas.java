@@ -19,6 +19,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.IllegalFormatException;
@@ -42,6 +43,7 @@ public class CadastrarDespesas extends AppCompatActivity {
     private TextView mostra;
     int ano, mes, dia;
     static  final int DIALOG_ID = 0;
+    Date teste;
 
 
 
@@ -82,7 +84,8 @@ public class CadastrarDespesas extends AppCompatActivity {
                     if (pendente.isChecked()) {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, dt, pendente.getText().toString());
+                        teste = new Date();
+                        Despesas d = new Despesas(disp.getText().toString(), valor1, teste, pendente.getText().toString());
 
 
                         d.save();
@@ -93,7 +96,7 @@ public class CadastrarDespesas extends AppCompatActivity {
                     if (ok.isChecked()) {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, dt, ok.getText().toString());
+                        Despesas d = new Despesas(disp.getText().toString(), valor1, teste, ok.getText().toString());
 
                         d.save();
 
@@ -148,7 +151,14 @@ public class CadastrarDespesas extends AppCompatActivity {
                 dt = +dia+"/"+mes+"/"+ano;
             }
 
-            mostra.setText(dt);
+
+
+            SimpleDateFormat d = new SimpleDateFormat("yyyy/mm/dd");
+            teste = new Date();
+
+
+            mostra.setText(teste.toString());
+
 
         }
 

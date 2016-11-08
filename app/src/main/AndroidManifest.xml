@@ -28,7 +28,7 @@
         <activity android:name=".Principal"/>
 
         <meta-data android:name="DATABASE" android:value="sugar_despesas.db"/>
-        <meta-data android:name="VERSION" android:value="6"/>
+        <meta-data android:name="VERSION" android:value="7"/>
         <meta-data android:name="QUERY_LOG" android:value="true"/>
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example.marcia.controledecontas"/><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
