@@ -36,6 +36,7 @@ public class ListarDespesas extends AppCompatActivity {
     private ArrayAdapter<Despesas> adpPen;
 
 
+
     private List<Despesas> listaDespesasOk;
     private List<Despesas> getListaDespesasDep;
     private List<Despesas>listaTotal;
@@ -99,7 +100,11 @@ public class ListarDespesas extends AppCompatActivity {
         adpOk.addAll(listaDespesasOk);
         adpPen.addAll(getListaDespesasDep);
         listadepend.setAdapter(adpPen);
-    listaViewOk.setAdapter(adpOk);
+        listaViewOk.setAdapter(adpOk);
+
+
+
+
 
         total.setText("Total= R$: " + formato(tot));
         pendencia.setText("Pendente= R$: "+ formato(pen));

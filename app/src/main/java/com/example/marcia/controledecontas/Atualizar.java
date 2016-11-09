@@ -98,41 +98,43 @@ public class Atualizar extends ActionBarActivity{
         altera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pendente.isChecked()){
-                    valor1 = Double.parseDouble(valor.getText().toString());
-                    Despesas des = Despesas.findById(Despesas.class, u);
+                valor1 = Double.parseDouble(valor.getText().toString());
+                Despesas des = Despesas.findById(Despesas.class, u);
 
-                    des.setDespesa(desp.getText().toString());
-                    des.setData_vencimento(dt );
-                    des.setValor(valor1);
+                des.setDespesa(desp.getText().toString());
+                des.setData_vencimento(dt );
+                des.setValor(valor1);
+
+                if(pendente.isChecked()){
+
                     des.setStatus("Pendente");
                     des.save();
-                    Toast.makeText(getApplicationContext(), "Despesa Atualizada Com Sucesso", Toast.LENGTH_SHORT).show();
-                    listaDespesas = new ArrayList<Despesas>();
-                    valor.setText("");
-                    desp.setText("");
-                    mostra.setText("");
+                    Toast.makeText(getApplicationContext(), "Despesa Atualizada.", Toast.LENGTH_SHORT).show();
+
+
 
                 }
                 if(ok.isChecked()){
-                    valor1 = Double.parseDouble(valor.getText().toString());
-                    Despesas des = Despesas.findById(Despesas.class, u);
 
-                    des.setDespesa(desp.getText().toString());
-                    des.setData_vencimento(dt );
-                    des.setValor(valor1);
                     des.setStatus("OK");
+
                     des.save();
-                    Toast.makeText(getApplicationContext(), "Despesa Atualizada!", Toast.LENGTH_SHORT).show();
-                    listaDespesas = new ArrayList<Despesas>();
-                    valor.setText("");
-                    desp.setText("");
-                    mostra.setText("");
+                    Toast.makeText(getApplicationContext(), "Despesa Atualizada.", Toast.LENGTH_SHORT).show();
+
 
                 }
 
+                des.save();
+                valor.setText("");
+                desp.setText("");
+                mostra.setText("");
                 Intent i = new Intent(Atualizar.this, ListarDespesas.class);
                 startActivity(i);
+
+
+
+
+
 
             }
         });
