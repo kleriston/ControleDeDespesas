@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icone"
-        android:label="Controle de Despesas $$"
+        android:label="Despesas em Mãos $$"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name="com.orm.SugarApp"

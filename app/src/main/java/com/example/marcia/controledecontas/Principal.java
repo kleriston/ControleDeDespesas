@@ -10,21 +10,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
 public class Principal extends AppCompatActivity {
 
     Button despesa;
-    Button mes;
+    TextView mostraMes;
     Button listaDisp;
     Button deletar;
     private  AlertDialog alerta;
     private List<Despesas> listaTotal;
     Iterator<Despesas> filmes = Despesas.findAll(Despesas.class);
+
+    int mes;
 
 
 
@@ -34,13 +38,26 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.principal);
 
         despesa = (Button) findViewById(R.id.cadaDesp);
-        mes = (Button) findViewById(R.id.cadaM);
+        mostraMes = (TextView) findViewById(R.id.mesId);
+
         listaDisp = (Button) findViewById(R.id.buttonDisp);
         deletar = (Button) findViewById(R.id.cadaM);
 
         listaTotal = new ArrayList<>();
 
+        final Calendar cal = Calendar.getInstance();
+
+
+
+
+
+        mes = cal.get(Calendar.MONTH);
+        mes = mes+1;
+
+
+
         verificaPendencia();
+        verificaMes(mes);
 
 
         despesa.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +124,47 @@ public class Principal extends AppCompatActivity {
                 break;
             }
         }
+    }
+
+    public void verificaMes(int mes){
+        if(mes == 1){
+        mostraMes.setText("Controle De Janeiro");
+            mostraMes.setTextColor(getResources().getColor(R.color.red));
+        }else if(mes == 2){
+            mostraMes.setText("Controle De Fevereiro");
+            mostraMes.setTextColor(getResources().getColor(R.color.yellow));
+        }else if(mes == 3){
+            mostraMes.setText("Controle De Março");
+            mostraMes.setTextColor(getResources().getColor(R.color.siena1));
+        }else if(mes == 4){
+            mostraMes.setText("Controle De Abriu");
+            mostraMes.setTextColor(getResources().getColor(R.color.colorAccent));
+        }else if(mes == 5){
+            mostraMes.setText("Controle De Maio");
+            mostraMes.setTextColor(getResources().getColor(R.color.lightgreen));
+        }else if(mes == 6){
+            mostraMes.setText("Controle De Junho");
+            mostraMes.setTextColor(getResources().getColor(R.color.gold2));
+        }else if(mes == 7){
+            mostraMes.setText("Controle De Julho");
+            mostraMes.setTextColor(getResources().getColor(R.color.dodgerBlue));
+        }else if(mes == 8){
+            mostraMes.setText("Controle De Agosto");
+            mostraMes.setTextColor(getResources().getColor(R.color.dark));
+        }else if(mes == 9){
+            mostraMes.setText("Controle De Setembro");
+            mostraMes.setTextColor(getResources().getColor(R.color.common_signin_btn_text_light));
+        }else if(mes == 10){
+            mostraMes.setText("Controle De Outubro");
+            mostraMes.setTextColor(getResources().getColor(R.color.red));
+        }else if(mes == 11){
+            mostraMes.setText("Controle De Novembro");
+            mostraMes.setTextColor(getResources().getColor(R.color.siena1));
+        }else if(mes == 12){
+            mostraMes.setText("Controle De Dezembro");
+            mostraMes.setTextColor(getResources().getColor(R.color.dodgerBlue));
+        }
+
     }
 
 }

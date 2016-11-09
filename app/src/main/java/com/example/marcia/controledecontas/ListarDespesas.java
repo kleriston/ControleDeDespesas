@@ -108,7 +108,7 @@ public class ListarDespesas extends AppCompatActivity {
 
         total.setText("Total= R$: " + formato(tot));
         pendencia.setText("Pendente= R$: "+ formato(pen));
-        total.setTextColor(getResources().getColor(R.color.colorAccent));
+        total.setTextColor(getResources().getColor(R.color.red));
         pendencia.setTextColor(getResources().getColor(R.color.colorPrimary));
 
 

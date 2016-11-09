@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#40ffcf</color>
+    <color name="dodgerBlue">#1E90FF</color>
+    <color name="red">#FF0000</color>
+    <color name="aquamsrine"> #7FFFD4</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="gold2">#EEC900</color>
+    <color name="lightgreen">#90EE90</color>
+    <color name="siena1">#FF8247</color>
+    <color name="burl">#FFD39B</color>
+    <color name="dark">#008B8B</color>
 </resources>
