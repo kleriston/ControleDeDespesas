@@ -43,7 +43,7 @@ public class CadastrarDespesas extends AppCompatActivity {
     private TextView mostra;
     int ano, mes, dia;
     static  final int DIALOG_ID = 0;
-    Date teste;
+    Date data;
 
 
 
@@ -84,8 +84,8 @@ public class CadastrarDespesas extends AppCompatActivity {
                     if (pendente.isChecked()) {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
-                        teste = new Date();
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, teste, pendente.getText().toString());
+
+                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString());
 
 
                         d.save();
@@ -96,7 +96,7 @@ public class CadastrarDespesas extends AppCompatActivity {
                     if (ok.isChecked()) {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, teste, ok.getText().toString());
+                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString());
 
                         d.save();
 
@@ -141,23 +141,25 @@ public class CadastrarDespesas extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             ano = year;
-            mes = monthOfYear +1;
+            mes = monthOfYear;
             dia = dayOfMonth;
 
-            if(dia <10){
-                dt =  "0"+dia+"/"+mes+"/"+ano;
-            }
-         else {
-                dt = +dia+"/"+mes+"/"+ano;
-            }
 
 
 
-            SimpleDateFormat d = new SimpleDateFormat("yyyy/mm/dd");
-            teste = new Date();
+     Calendar c = Calendar.getInstance();
+
+            c.set(ano, mes, dia);
+
+             data = c.getTime();
 
 
-            mostra.setText(teste.toString());
+
+            DateFormat format  = DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+            dt = format.format(data);
+
+            mostra.setText(dt);
 
 
         }

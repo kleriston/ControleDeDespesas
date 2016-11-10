@@ -14,8 +14,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class ListarDespesas extends AppCompatActivity {
     private ListView listaViewOk;
     private ListView listadepend;
     private  AlertDialog alerta;
+    String dt="";
 
 
 
@@ -112,13 +115,17 @@ public class ListarDespesas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
+                DateFormat format  = DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+             Date da=  listaDespesasOk.get(position).data_vencimento;
+              dt = format.format(da);
 
                 String posicao;
 
                 AlertDialog.Builder alerta = new AlertDialog.Builder(ListarDespesas.this);
                 alerta.setTitle(listaDespesasOk.get(position).getDespesa());
                 alerta.setIcon(R.mipmap.lupa);
-                alerta.setMessage("Despesa: " +listaDespesasOk.get(position).getDespesa() + "\n\nData: " + listaDespesasOk.get(position).data_vencimento+
+                alerta.setMessage("Despesa: " +listaDespesasOk.get(position).getDespesa() + "\n\nData: " + dt+
                 "\n\nValor: R$ " + formato(listaDespesasOk.get(position).getValor()) + "\n\nSituação: " + listaDespesasOk.get(position).getStatus());
                 alerta.setCancelable(true);
                 alerta.setNegativeButton("Atualizar", new DialogInterface.OnClickListener() {
@@ -174,13 +181,16 @@ public class ListarDespesas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
+                DateFormat format  = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
+                Date da=  getListaDespesasDep.get(position).data_vencimento;
+                  dt = format.format(da);
                 String posicao;
 
                 AlertDialog.Builder alerta = new AlertDialog.Builder(ListarDespesas.this);
                 alerta.setTitle(getListaDespesasDep.get(position).getDespesa());
                 alerta.setIcon(R.mipmap.lupa);
-                alerta.setMessage("Despesa: " +getListaDespesasDep.get(position).getDespesa() + "\n\nData: " + getListaDespesasDep.get(position).data_vencimento+
+                alerta.setMessage("Despesa: " +getListaDespesasDep.get(position).getDespesa() + "\n\nData: " + dt+
                         "\n\nValor: R$ " + formato(getListaDespesasDep.get(position).getValor()) + "\n\nSituação: " + getListaDespesasDep.get(position).getStatus());
                 alerta.setCancelable(true);
                 alerta.setNegativeButton("Atualizar", new DialogInterface.OnClickListener() {
