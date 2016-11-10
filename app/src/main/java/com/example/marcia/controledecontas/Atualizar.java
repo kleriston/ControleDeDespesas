@@ -15,8 +15,11 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -40,6 +43,8 @@ public class Atualizar extends ActionBarActivity{
     int ano, mes, dia;
     static  final int DIALOG_ID = 0;
     private TextView mostra;
+    Date data;
+    Date da;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,14 +87,19 @@ public class Atualizar extends ActionBarActivity{
 
 
         }
+        DateFormat format  = DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+
+
         for (int ii=0; ii< listaDespesas.size();ii++){
 
             if(listaDespesas.get(ii).getId() == u){
                 desp.setText(listaDespesas.get(ii).getDespesa());
-
+                da=  listaDespesas.get(ii).data_vencimento;
+                dt = format.format(da);
+                mostra.setText(dt);
                 valor.setText(""+listaDespesas.get(ii).getValor());
 
-                mostra.setText(listaDespesas.get(ii).getData_vencimento());
             }
         }
 
@@ -107,6 +117,12 @@ public class Atualizar extends ActionBarActivity{
 
                 if(pendente.isChecked()){
 
+<<<<<<< HEAD
+=======
+                    des.setDespesa(desp.getText().toString());
+                des.setData_vencimento(data );
+                    des.setValor(valor1);
+>>>>>>> data
                     des.setStatus("Pendente");
                     des.save();
                     Toast.makeText(getApplicationContext(), "Despesa Atualizada.", Toast.LENGTH_SHORT).show();
@@ -116,6 +132,12 @@ public class Atualizar extends ActionBarActivity{
                 }
                 if(ok.isChecked()){
 
+<<<<<<< HEAD
+=======
+                    des.setDespesa(desp.getText().toString());
+                   des.setData_vencimento(data );
+                    des.setValor(valor1);
+>>>>>>> data
                     des.setStatus("OK");
 
                     des.save();
@@ -166,15 +188,25 @@ public class Atualizar extends ActionBarActivity{
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             ano = year;
-            mes = monthOfYear +1;
+            mes = monthOfYear;
             dia = dayOfMonth;
 
-            if(dia <10){
-                dt =  "0"+dia+"/"+mes+"/"+ano;
-            }else {
-                dt = +dia+"/"+mes+"/"+ano;
-            }
+
+            Calendar c = Calendar.getInstance();
+
+            c.set(ano, mes, dia);
+
+            data = c.getTime();
+
+
+
+            DateFormat format  = DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+            dt = format.format(data);
+
             mostra.setText(dt);
+
+        
 
         }
 
