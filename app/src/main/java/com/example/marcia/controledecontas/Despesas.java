@@ -16,15 +16,17 @@ public class Despesas extends SugarRecord {
 
     Date data_vencimento;
     String status;
+    int mes;
 
     public Despesas() {
     }
 
-    public Despesas(String despesa, double valor, Date data_vencimento, String status) {
+    public Despesas(String despesa, double valor, Date data_vencimento, String status, int mes) {
         this.despesa = despesa;
         this.valor = valor;
         this.data_vencimento = data_vencimento;
         this.status = status;
+        this.mes = mes;
     }
 
     public String getDespesa() {
@@ -58,6 +60,14 @@ public class Despesas extends SugarRecord {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
     }
 
     public String toString() {

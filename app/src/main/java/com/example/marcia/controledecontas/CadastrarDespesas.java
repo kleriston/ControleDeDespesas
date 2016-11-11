@@ -20,9 +20,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.IllegalFormatException;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Marcia on 25/10/2016.
@@ -44,6 +47,9 @@ public class CadastrarDespesas extends AppCompatActivity {
     int ano, mes, dia;
     static  final int DIALOG_ID = 0;
     Date data;
+    int m;
+
+    private List<Mes> listaMeses;
 
 
 
@@ -69,7 +75,14 @@ public class CadastrarDespesas extends AppCompatActivity {
         mes = cal.get(Calendar.MONTH);
         dia = cal.get(Calendar.DAY_OF_MONTH);
 
+        Iterator<Mes> mm = Mes.findAll(Mes.class);
+        listaMeses = new ArrayList<>();
+        while (mm.hasNext()) {
+            Mes d = mm.next();
 
+            listaMeses.add(d);
+
+        }
 
 
         cadastrar = (Button) findViewById(R.id.idCad);
@@ -85,9 +98,18 @@ public class CadastrarDespesas extends AppCompatActivity {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString());
+                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString(),m);
 
-
+                        Toast.makeText(getApplicationContext(), "Mês " + m, Toast.LENGTH_SHORT).show();
+                        for (int i=0; i<listaMeses.size();i++){
+                            if (listaMeses.get(i).getNumero() == m){
+                                Mes person = Mes.findById(Mes.class, listaMeses.get(i).getId());
+                                person.getDespe().add(d);
+                                person.setDespe(listaMeses.get(i).getDespe());
+                                person.save();
+                                Toast.makeText(getApplicationContext(), "Inseriu ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                         d.save();
 
 
@@ -96,8 +118,17 @@ public class CadastrarDespesas extends AppCompatActivity {
                     if (ok.isChecked()) {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString());
-
+                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString(),m);
+                        Toast.makeText(getApplicationContext(), "Mês " + m, Toast.LENGTH_SHORT).show();
+                        for (int i=0; i<listaMeses.size();i++){
+                            if (listaMeses.get(i).getNumero() == m){
+                                Mes person = Mes.findById(Mes.class, listaMeses.get(i).getId());
+                                person.getDespe().add(d);
+                                person.setDespe(listaMeses.get(i).getDespe());
+                                person.save();
+                                Toast.makeText(getApplicationContext(), "Inseriu ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                         d.save();
 
                     }
@@ -143,6 +174,7 @@ public class CadastrarDespesas extends AppCompatActivity {
             ano = year;
             mes = monthOfYear;
             dia = dayOfMonth;
+            m = mes+1;
 
 
 
