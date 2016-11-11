@@ -18,14 +18,13 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:weightSum="1"
             android:id="@+id/linearLayout"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="88dp">
+            android:layout_alignParentTop="true">
 
 
             <Button
@@ -69,6 +68,22 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_weight="0.30" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Listar Despesas"
+                android:id="@+id/buttonListarMes"
+                android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar Mês"
+                android:id="@+id/buttonMes"
+                android:layout_below="@+id/mesId"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </LinearLayout>
 
     <TextView
@@ -78,6 +93,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="30dp" />
+
+
 
 
 </RelativeLayout>

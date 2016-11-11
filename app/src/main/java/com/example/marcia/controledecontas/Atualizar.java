@@ -112,17 +112,15 @@ public class Atualizar extends ActionBarActivity{
                 Despesas des = Despesas.findById(Despesas.class, u);
 
                 des.setDespesa(desp.getText().toString());
-                des.setData_vencimento(dt );
+                des.setData_vencimento(data);
                 des.setValor(valor1);
 
                 if(pendente.isChecked()){
 
-<<<<<<< HEAD
-=======
-                    des.setDespesa(desp.getText().toString());
+            des.setDespesa(desp.getText().toString());
                 des.setData_vencimento(data );
                     des.setValor(valor1);
->>>>>>> data
+
                     des.setStatus("Pendente");
                     des.save();
                     Toast.makeText(getApplicationContext(), "Despesa Atualizada.", Toast.LENGTH_SHORT).show();
@@ -132,12 +130,10 @@ public class Atualizar extends ActionBarActivity{
                 }
                 if(ok.isChecked()){
 
-<<<<<<< HEAD
-=======
-                    des.setDespesa(desp.getText().toString());
+        des.setDespesa(desp.getText().toString());
                    des.setData_vencimento(data );
                     des.setValor(valor1);
->>>>>>> data
+
                     des.setStatus("OK");
 
                     des.save();

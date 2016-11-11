@@ -24,6 +24,8 @@ public class Principal extends AppCompatActivity {
     TextView mostraMes;
     Button listaDisp;
     Button deletar;
+    Button cadastrarMes;
+    Button listarMeses;
     private  AlertDialog alerta;
     private List<Despesas> listaTotal;
     Iterator<Despesas> filmes = Despesas.findAll(Despesas.class);
@@ -42,6 +44,8 @@ public class Principal extends AppCompatActivity {
 
         listaDisp = (Button) findViewById(R.id.buttonDisp);
         deletar = (Button) findViewById(R.id.cadaM);
+        cadastrarMes = (Button) findViewById(R.id.buttonMes);
+        listarMeses = (Button) findViewById(R.id.buttonListarMes);
 
         listaTotal = new ArrayList<>();
 
@@ -50,6 +54,20 @@ public class Principal extends AppCompatActivity {
 
 
 
+        cadastrarMes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Principal.this, CadastrarMeses.class);
+                startActivity(i);
+            }
+        });
+        listarMeses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Principal.this, ListarMeses.class);
+                startActivity(i);
+            }
+        });
 
         mes = cal.get(Calendar.MONTH);
         mes = mes+1;
@@ -164,6 +182,8 @@ public class Principal extends AppCompatActivity {
             mostraMes.setText("Controle De Dezembro");
             mostraMes.setTextColor(getResources().getColor(R.color.dodgerBlue));
         }
+
+
 
     }
 
