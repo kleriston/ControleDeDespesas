@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Marcia on 10/11/2016.
  */
@@ -121,13 +124,18 @@ public class CadastrarMeses extends AppCompatActivity {
 
                 }
                 if (novembro.isChecked()){
+
+
+
                     Mes m = new Mes("Novembro", 11,null);
                     m.save();
-                    Toast.makeText(getApplicationContext(), "Mês de " +outubro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Mês de " +novembro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if (desembro.isChecked()){
+
+
                     Mes m = new Mes("Dezembro", 12,null);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +desembro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();

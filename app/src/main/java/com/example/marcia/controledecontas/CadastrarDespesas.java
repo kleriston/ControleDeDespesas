@@ -103,11 +103,21 @@ public class CadastrarDespesas extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Mês " + m, Toast.LENGTH_SHORT).show();
                         for (int i=0; i<listaMeses.size();i++){
                             if (listaMeses.get(i).getNumero() == m){
+
                                 Mes person = Mes.findById(Mes.class, listaMeses.get(i).getId());
-                                person.getDespe().add(d);
-                                person.setDespe(listaMeses.get(i).getDespe());
-                                person.save();
-                                Toast.makeText(getApplicationContext(), "Inseriu ", Toast.LENGTH_SHORT).show();
+                                 for (int j=0; j< person.getListaDespesas().length;j++){
+
+
+                                     if (person.getListaDespesas()[j] == null){
+                                    person.listaDespesas[j] = d;
+                                    person.save();
+                                         Toast.makeText(getApplicationContext(), "DESP:  " + person.listaDespesas[j].getDespesa(), Toast.LENGTH_SHORT).show();
+
+                                         break;
+
+                                }
+                            }
+
                             }
                         }
                         d.save();
@@ -123,10 +133,15 @@ public class CadastrarDespesas extends AppCompatActivity {
                         for (int i=0; i<listaMeses.size();i++){
                             if (listaMeses.get(i).getNumero() == m){
                                 Mes person = Mes.findById(Mes.class, listaMeses.get(i).getId());
-                                person.getDespe().add(d);
-                                person.setDespe(listaMeses.get(i).getDespe());
-                                person.save();
-                                Toast.makeText(getApplicationContext(), "Inseriu ", Toast.LENGTH_SHORT).show();
+                                for (int j=0; j< person.getListaDespesas().length;j++){
+                                    if (person.getListaDespesas()[j] == null){
+                                        person.getListaDespesas()[j] = d;
+                                        person.save();
+                                        Toast.makeText(getApplicationContext(), "Inseriu " + person.getListaDespesas(), Toast.LENGTH_SHORT).show();
+                                        break;
+                                    }
+                                }
+
                             }
                         }
                         d.save();

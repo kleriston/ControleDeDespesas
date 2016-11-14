@@ -5,6 +5,7 @@ import com.orm.SugarRecord;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by Marcia on 25/10/2016.
  */
@@ -12,15 +13,18 @@ public class Mes extends SugarRecord {
 
     String nome;
     int numero;
-    List<Despesas> despe;
+
+    Despesas [] listaDespesas = new Despesas[30];
+
 
     public Mes() {
     }
 
-    public Mes(String nome, int numero, List<Despesas> despe) {
+    public Mes(String nome,  int numero, Despesas[] listaDespesas) {
         this.nome = nome;
+
         this.numero = numero;
-        this.despe = new ArrayList<>();
+        this.listaDespesas = listaDespesas;
     }
 
     public String getNome() {
@@ -39,18 +43,19 @@ public class Mes extends SugarRecord {
         this.numero = numero;
     }
 
-    public List<Despesas> getDespe() {
-        if (despe == null){
-            despe = new ArrayList<>();
+    public Despesas[] getListaDespesas() {
+        if (listaDespesas == null){
+            listaDespesas = new Despesas[30];
         }
-        return despe;
+        return listaDespesas;
     }
 
-    public void setDespe(List<Despesas> despe) {
-        this.despe = despe;
+    public void setListaDespesas(Despesas[] listaDespesas) {
+        this.listaDespesas = listaDespesas;
     }
 
     public String toString() {
-        return  this.getNome();
+
+        return this.getNome();
     }
 }

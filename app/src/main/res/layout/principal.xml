@@ -54,7 +54,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Listar Despesas"
+                android:text="Listar Meses"
                 android:id="@+id/buttonListarMes"
                 android:layout_gravity="center_horizontal"
                 android:layout_alignBaseline="@+id/cadaM"
@@ -76,9 +76,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/mesId"
         android:textSize="30dp"
-        android:layout_above="@+id/cadaDesp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/buttonListarMes"
+        android:layout_alignEnd="@+id/buttonListarMes" />
 
 
 

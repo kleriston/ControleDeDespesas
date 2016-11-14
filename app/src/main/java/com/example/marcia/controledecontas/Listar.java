@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,14 +47,18 @@ ListView listaDeDespesas;
             listaMeses.add(d);
 
         }
-        List<Despesas> l = new ArrayList<>();
 
-        for (int j=0; j<listaMeses.size();j++){
+       Despesas [] teste = new Despesas[30];
+        Mes me = Mes.findById(Mes.class, u);
 
 
 
-            l.add((Despesas) listaMeses.get(j).despe);
 
+        for (int t =0; t< teste.length;t++){
+
+            if (teste[t] == null){
+                teste[t] = me.listaDespesas[t];
+            }
         }
 
 
@@ -62,9 +67,9 @@ ListView listaDeDespesas;
 
 
 
-
         adpMes = new ArrayAdapter<Despesas>(this,android.R.layout.simple_list_item_checked);
-        adpMes.addAll(l);
+
+        adpMes.addAll(teste);
         listaDeDespesas.setAdapter(adpMes);
 
 

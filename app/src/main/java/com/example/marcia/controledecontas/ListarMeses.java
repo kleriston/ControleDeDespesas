@@ -72,25 +72,7 @@ public class ListarMeses extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     List<Despesas> teste= new ArrayList<>();
-                    Mes person = new Mes();
-                    person = Mes.findById(Mes.class, listaMeses.get(position).getId());
-                    for (int i=0; i<listaDespesas.size();i++){
-                        for(int  j=0; j<listaMeses.size();j++){
-                            if( listaDespesas.get(i).getMes() ==listaMeses.get(j).getNumero()){
-                                teste.add(listaDespesas.get(i));
-                                person.getDespe().add(listaDespesas.get(i));
-                                person.setDespe(listaMeses.get(j).getDespe());
 
-
-                                person.save();
-                        }
-
-
-
-
-                        }
-
-                    }
                     String posicao;
                     Intent i = new Intent(ListarMeses.this, Listar.class);
                     i.putExtra("posicao", listaMeses.get(position).getId().toString());
