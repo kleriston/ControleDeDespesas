@@ -42,8 +42,7 @@ public class Principal extends AppCompatActivity {
         despesa = (Button) findViewById(R.id.cadaDesp);
         mostraMes = (TextView) findViewById(R.id.mesId);
 
-        listaDisp = (Button) findViewById(R.id.buttonDisp);
-        deletar = (Button) findViewById(R.id.cadaM);
+
         cadastrarMes = (Button) findViewById(R.id.buttonMes);
         listarMeses = (Button) findViewById(R.id.buttonListarMes);
 
@@ -85,45 +84,8 @@ public class Principal extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        listaDisp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Principal.this, ListarDespesas.class);
-                startActivity(i);
-            }
-        });
-        deletar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               AlertDialog.Builder alerta = new AlertDialog.Builder(Principal.this);
-                alerta.setTitle("Dicas");
-                alerta.setIcon(R.mipmap.deletar);
-                alerta.setMessage("Deseja Realmente Excluir?");
-                alerta.setCancelable(true);
-                alerta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener(){
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-
-              alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                  @Override
-                  public void onClick(DialogInterface dialog, int which) {
-                      Despesas d = new Despesas();
-
-                      d.deleteAll(Despesas.class);
-                      Toast.makeText(getApplicationContext(), "Despesas Excluidas", Toast.LENGTH_SHORT).show();
-                  }
-              });
-
-                AlertDialog alertDialog = alerta.create();
-                alertDialog.show();
 
 
-            }
-        });
     }
 
 

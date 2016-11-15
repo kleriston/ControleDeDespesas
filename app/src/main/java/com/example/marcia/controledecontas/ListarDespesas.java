@@ -122,7 +122,7 @@ public class ListarDespesas extends AppCompatActivity {
 
                 DateFormat format  = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
-             Date da=  listaDespesasOk.get(position).data_vencimento;
+             Date da=  listaDespesasOk.get(position).getData_vencimento();
               dt = format.format(da);
 
                 String posicao;
@@ -188,7 +188,7 @@ public class ListarDespesas extends AppCompatActivity {
 
                 DateFormat format  = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
-                Date da=  getListaDespesasDep.get(position).data_vencimento;
+                Date da=  getListaDespesasDep.get(position).getData_vencimento();
                   dt = format.format(da);
                 String posicao;
 

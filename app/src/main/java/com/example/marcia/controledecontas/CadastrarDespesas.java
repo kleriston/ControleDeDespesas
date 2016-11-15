@@ -98,29 +98,19 @@ public class CadastrarDespesas extends AppCompatActivity {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString(),m);
 
-                        Toast.makeText(getApplicationContext(), "Mês " + m, Toast.LENGTH_SHORT).show();
                         for (int i=0; i<listaMeses.size();i++){
                             if (listaMeses.get(i).getNumero() == m){
 
-                                Mes person = Mes.findById(Mes.class, listaMeses.get(i).getId());
-                                 for (int j=0; j< person.getListaDespesas().length;j++){
+                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString(),m,listaMeses.get(i));
+                                d.save();
 
-
-                                     if (person.getListaDespesas()[j] == null){
-                                    person.listaDespesas[j] = d;
-                                    person.save();
-                                         Toast.makeText(getApplicationContext(), "DESP:  " + person.listaDespesas[j].getDespesa(), Toast.LENGTH_SHORT).show();
-
-                                         break;
-
-                                }
-                            }
+                                Toast.makeText(getApplicationContext(), "Despesa Cadastrada.", Toast.LENGTH_SHORT).show();
+                                break;
 
                             }
                         }
-                        d.save();
+
 
 
 
@@ -128,28 +118,23 @@ public class CadastrarDespesas extends AppCompatActivity {
                     if (ok.isChecked()) {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString(),m);
-                        Toast.makeText(getApplicationContext(), "Mês " + m, Toast.LENGTH_SHORT).show();
                         for (int i=0; i<listaMeses.size();i++){
                             if (listaMeses.get(i).getNumero() == m){
-                                Mes person = Mes.findById(Mes.class, listaMeses.get(i).getId());
-                                for (int j=0; j< person.getListaDespesas().length;j++){
-                                    if (person.getListaDespesas()[j] == null){
-                                        person.getListaDespesas()[j] = d;
-                                        person.save();
-                                        Toast.makeText(getApplicationContext(), "Inseriu " + person.getListaDespesas(), Toast.LENGTH_SHORT).show();
-                                        break;
-                                    }
-                                }
+
+                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString(),m,listaMeses.get(i));
+                                d.save();
+
+                                Toast.makeText(getApplicationContext(), "Despesa Cadastrada.", Toast.LENGTH_SHORT).show();
+                                break;
 
                             }
                         }
-                        d.save();
+
 
                     }
 
 
-                    Toast.makeText(getApplicationContext(), "Despesa Cadastrada Com Sucesso", Toast.LENGTH_SHORT).show();
+
                 } catch (IllegalFormatException e) {
                     Toast.makeText(getApplicationContext(), "Opa! Erro ao Cadatrar", Toast.LENGTH_SHORT).show();
 

@@ -53,7 +53,7 @@ public class CadastrarMeses extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (janeiro.isChecked()){
-                    Mes m = new Mes("Janeiro", 1,null);
+                    Mes m = new Mes("Janeiro", 1);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +janeiro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
@@ -61,63 +61,63 @@ public class CadastrarMeses extends AppCompatActivity {
 
                 }
                 if(fevereiro.isChecked()){
-                    Mes m = new Mes("Fevereiro", 2,null);
+                    Mes m = new Mes("Fevereiro", 2);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +fevereiro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if(marco.isChecked()){
-                    Mes m = new Mes("Março", 3,null);
+                    Mes m = new Mes("Março", 3);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +marco.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if(abril.isChecked()){
-                    Mes m = new Mes("Abril", 4,null);
+                    Mes m = new Mes("Abril", 4);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +abril.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if (maio.isChecked()){
-                    Mes m = new Mes("Maio", 5,null);
+                    Mes m = new Mes("Maio", 5);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +maio.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if(junho.isChecked()){
-                    Mes m = new Mes("Junho", 6,null);
+                    Mes m = new Mes("Junho", 6);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +junho.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if (julho.isChecked()){
-                    Mes m = new Mes("Julho", 7,null);
+                    Mes m = new Mes("Julho", 7);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +julho.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if (agosto.isChecked()){
-                    Mes m = new Mes("Agosto", 8,null);
+                    Mes m = new Mes("Agosto", 8);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +agosto.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if (setembro.isChecked()){
-                    Mes m = new Mes("Setembro", 9,null);
+                    Mes m = new Mes("Setembro", 9);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +setembro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
 
                 }
                 if (outubro.isChecked()){
-                    Mes m = new Mes("Outubro", 10,null);
+                    Mes m = new Mes("Outubro", 10);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +outubro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
@@ -127,7 +127,7 @@ public class CadastrarMeses extends AppCompatActivity {
 
 
 
-                    Mes m = new Mes("Novembro", 11,null);
+                    Mes m = new Mes("Novembro", 11);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +novembro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 
@@ -136,7 +136,7 @@ public class CadastrarMeses extends AppCompatActivity {
                 if (desembro.isChecked()){
 
 
-                    Mes m = new Mes("Dezembro", 12,null);
+                    Mes m = new Mes("Dezembro", 12);
                     m.save();
                     Toast.makeText(getApplicationContext(), "Mês de " +desembro.getText()+" Cadastrado.", Toast.LENGTH_SHORT).show();
 

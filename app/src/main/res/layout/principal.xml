@@ -13,74 +13,50 @@
 
 
 
-            <Button
-                android:layout_width="364dp"
-                android:layout_height="wrap_content"
-                android:text="Cadastrar Despesas"
-                android:id="@+id/cadaDesp"
-                android:textSize="15dp"
 
-                android:layout_gravity="center_vertical"
-                android:layout_below="@+id/buttonListarMes"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Listar Despesas"
-                android:id="@+id/buttonDisp"
-                android:textSize="15dp"
-                android:layout_gravity="center_vertical"
-                android:layout_above="@+id/cadaM"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-
-            <Button
-                android:layout_width="369dp"
-                android:layout_height="wrap_content"
-                android:text="Excluir Todas"
-                android:id="@+id/cadaM"
-                android:textSize="15dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="158dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_weight="0.30" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Listar Meses"
-                android:id="@+id/buttonListarMes"
-                android:layout_gravity="center_horizontal"
-                android:layout_alignBaseline="@+id/cadaM"
-                android:layout_alignBottom="@+id/cadaM"
-                android:layout_centerHorizontal="true" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cadastrar Mês"
-                android:id="@+id/buttonMes"
-                android:layout_above="@+id/buttonDisp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mesId"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/buttonListarMes"
-        android:layout_alignEnd="@+id/buttonListarMes" />
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mesId"
+    android:textSize="30dp" />
+
+        </LinearLayout>
+        <Button
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar Despesas"
+            android:id="@+id/cadaDesp"
+            android:textSize="15dp"
+
+            />
 
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Listar Despesas"
+            android:id="@+id/buttonListarMes"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar Mês"
+            android:id="@+id/buttonMes"
+
+            />
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

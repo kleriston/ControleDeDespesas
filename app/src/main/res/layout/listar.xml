@@ -5,6 +5,33 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="191dp"
         android:id="@+id/listViewListDM" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pendentes"
+        android:id="@+id/pendentesId"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30dp"
+        android:textColor="@color/dark"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:id="@+id/listViewPendentesId"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewTotal"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewPendente"
+        android:textSize="25dp" />
 </LinearLayout>

@@ -14,17 +14,17 @@ public class Mes extends SugarRecord {
     String nome;
     int numero;
 
-    Despesas [] listaDespesas = new Despesas[30];
+
 
 
     public Mes() {
     }
 
-    public Mes(String nome,  int numero, Despesas[] listaDespesas) {
+    public Mes(String nome,  int numero) {
         this.nome = nome;
 
         this.numero = numero;
-        this.listaDespesas = listaDespesas;
+
     }
 
     public String getNome() {
@@ -43,16 +43,6 @@ public class Mes extends SugarRecord {
         this.numero = numero;
     }
 
-    public Despesas[] getListaDespesas() {
-        if (listaDespesas == null){
-            listaDespesas = new Despesas[30];
-        }
-        return listaDespesas;
-    }
-
-    public void setListaDespesas(Despesas[] listaDespesas) {
-        this.listaDespesas = listaDespesas;
-    }
 
     public String toString() {
 
