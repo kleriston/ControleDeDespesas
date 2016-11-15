@@ -40,11 +40,13 @@ public class Atualizar extends ActionBarActivity{
     private List<Despesas> listaDespesas;
     private Button altera;
     private Button btn;
-    int ano, mes, dia;
+    int ano, mes, dia, m;
     static  final int DIALOG_ID = 0;
     private TextView mostra;
     Date data;
     Date da;
+
+    private List<Mes> listaMeses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,15 @@ public class Atualizar extends ActionBarActivity{
 
 
         Iterator<Despesas> filmes = Despesas.findAll(Despesas.class);
+        Iterator<Mes> mm = Mes.findAll(Mes.class);
+        listaMeses = new ArrayList<>();
+        while (mm.hasNext()) {
+            Mes d = mm.next();
+
+            listaMeses.add(d);
+
+        }
+
 
         listaDespesas = new ArrayList<>();
         int c =0;
@@ -95,7 +106,7 @@ public class Atualizar extends ActionBarActivity{
 
             if(listaDespesas.get(ii).getId() == u){
                 desp.setText(listaDespesas.get(ii).getDespesa());
-                da=  listaDespesas.get(ii).data_vencimento;
+                da=  listaDespesas.get(ii).getData_vencimento();
                 dt = format.format(da);
                 mostra.setText(dt);
                 valor.setText(""+listaDespesas.get(ii).getValor());
@@ -108,20 +119,41 @@ public class Atualizar extends ActionBarActivity{
         altera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 valor1 = Double.parseDouble(valor.getText().toString());
                 Despesas des = Despesas.findById(Despesas.class, u);
-
                 des.setDespesa(desp.getText().toString());
+<<<<<<< HEAD
                 des.setData_vencimento(data );
+=======
+                des.setData_vencimento(data);
+>>>>>>> meses
                 des.setValor(valor1);
+
+                for (int i=0; i<listaMeses.size();i++){
+                    if (listaMeses.get(i).getNumero() == m){
+                        des.setMesReferente(listaMeses.get(i));
+                        des.save();
+                        Toast.makeText(getApplicationContext(), "Mes" + des.getMesReferente().nome, Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+
+
 
                 if(pendente.isChecked()){
 
+<<<<<<< HEAD
 
                     des.setDespesa(desp.getText().toString());
                 des.setData_vencimento(data );
                     des.setValor(valor1);
 
+=======
+            des.setDespesa(desp.getText().toString());
+                des.setData_vencimento(data );
+                    des.setValor(valor1);
+>>>>>>> meses
                     des.setStatus("Pendente");
                     des.save();
                     Toast.makeText(getApplicationContext(), "Despesa Atualizada.", Toast.LENGTH_SHORT).show();
@@ -131,8 +163,12 @@ public class Atualizar extends ActionBarActivity{
                 }
                 if(ok.isChecked()){
 
+<<<<<<< HEAD
 
                     des.setDespesa(desp.getText().toString());
+=======
+        des.setDespesa(desp.getText().toString());
+>>>>>>> meses
                    des.setData_vencimento(data );
                     des.setValor(valor1);
 
@@ -148,7 +184,7 @@ public class Atualizar extends ActionBarActivity{
                 valor.setText("");
                 desp.setText("");
                 mostra.setText("");
-                Intent i = new Intent(Atualizar.this, ListarDespesas.class);
+                Intent i = new Intent(Atualizar.this, ListarMeses.class);
                 startActivity(i);
 
 
@@ -188,6 +224,8 @@ public class Atualizar extends ActionBarActivity{
             ano = year;
             mes = monthOfYear;
             dia = dayOfMonth;
+
+            m = monthOfYear +1;
 
 
             Calendar c = Calendar.getInstance();

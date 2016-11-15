@@ -20,9 +20,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.IllegalFormatException;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Marcia on 25/10/2016.
@@ -44,6 +47,9 @@ public class CadastrarDespesas extends AppCompatActivity {
     int ano, mes, dia;
     static  final int DIALOG_ID = 0;
     Date data;
+    int m;
+
+    private List<Mes> listaMeses;
 
 
 
@@ -69,7 +75,14 @@ public class CadastrarDespesas extends AppCompatActivity {
         mes = cal.get(Calendar.MONTH);
         dia = cal.get(Calendar.DAY_OF_MONTH);
 
+        Iterator<Mes> mm = Mes.findAll(Mes.class);
+        listaMeses = new ArrayList<>();
+        while (mm.hasNext()) {
+            Mes d = mm.next();
 
+            listaMeses.add(d);
+
+        }
 
 
         cadastrar = (Button) findViewById(R.id.idCad);
@@ -85,10 +98,19 @@ public class CadastrarDespesas extends AppCompatActivity {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString());
 
+                        for (int i=0; i<listaMeses.size();i++){
+                            if (listaMeses.get(i).getNumero() == m){
 
-                        d.save();
+                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString(),m,listaMeses.get(i));
+                                d.save();
+
+                                Toast.makeText(getApplicationContext(), "Despesa Cadastrada.", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            }
+                        }
+
 
 
 
@@ -96,14 +118,23 @@ public class CadastrarDespesas extends AppCompatActivity {
                     if (ok.isChecked()) {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
-                        Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString());
+                        for (int i=0; i<listaMeses.size();i++){
+                            if (listaMeses.get(i).getNumero() == m){
 
-                        d.save();
+                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString(),m,listaMeses.get(i));
+                                d.save();
+
+                                Toast.makeText(getApplicationContext(), "Despesa Cadastrada.", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            }
+                        }
+
 
                     }
 
 
-                    Toast.makeText(getApplicationContext(), "Despesa Cadastrada Com Sucesso", Toast.LENGTH_SHORT).show();
+
                 } catch (IllegalFormatException e) {
                     Toast.makeText(getApplicationContext(), "Opa! Erro ao Cadatrar", Toast.LENGTH_SHORT).show();
 
@@ -143,6 +174,7 @@ public class CadastrarDespesas extends AppCompatActivity {
             ano = year;
             mes = monthOfYear;
             dia = dayOfMonth;
+            m = mes+1;
 
 
 

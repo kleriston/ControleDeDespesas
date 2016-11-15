@@ -11,20 +11,25 @@ import java.util.Date;
  */
 public class Despesas extends SugarRecord {
 
-    String despesa;
-    double valor;
+    private String despesa;
+    private double valor;
 
-    Date data_vencimento;
-    String status;
+    private Date data_vencimento;
+    private  String status;
+    private int mes;
+
+    private Mes mesReferente;
 
     public Despesas() {
     }
 
-    public Despesas(String despesa, double valor, Date data_vencimento, String status) {
+    public Despesas(String despesa, double valor, Date data_vencimento, String status, int mes, Mes mesReferente) {
         this.despesa = despesa;
         this.valor = valor;
         this.data_vencimento = data_vencimento;
         this.status = status;
+        this.mes = mes;
+        this.mesReferente = mesReferente;
     }
 
     public String getDespesa() {
@@ -60,7 +65,25 @@ public class Despesas extends SugarRecord {
         this.status = status;
     }
 
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
     public String toString() {
         return  this.getDespesa();
     }
+
+    public Mes getMesReferente() {
+        return mesReferente;
+    }
+
+    public void setMesReferente(Mes mesReferente) {
+        this.mesReferente = mesReferente;
+    }
 }
+
+
