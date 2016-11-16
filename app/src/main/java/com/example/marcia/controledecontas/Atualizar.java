@@ -134,8 +134,7 @@ public class Atualizar extends ActionBarActivity{
                     if (listaMeses.get(i).getNumero() == m){
                         des.setMesReferente(listaMeses.get(i));
                         des.save();
-                        Toast.makeText(getApplicationContext(), "Mes" + des.getMesReferente().nome, Toast.LENGTH_SHORT).show();
-                        break;
+                         break;
                     }
                 }
 
