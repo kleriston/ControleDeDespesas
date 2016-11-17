@@ -102,17 +102,15 @@ public class CadastrarDespesas extends AppCompatActivity {
 
 
                         for (int i=0; i<listaMeses.size();i++){
-                            if (listaMeses.get(i).getNumero() != m){
-                                Toast.makeText(getApplicationContext(), "Atenção Cadastre o Mês Referente a Despesa.", Toast.LENGTH_SHORT).show();
-                            }
-                            if (listaMeses.get(i).getNumero() ==m){
+                            if(listaMeses.get(i).getNumero() == m){
                                 Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString(),m,listaMeses.get(i));
                                 d.save();
+                                disp.setText("");
+                                mostra.setText("");
+                                valor.setText("");
 
                                 Toast.makeText(getApplicationContext(), "Despesa Cadastrada.", Toast.LENGTH_SHORT).show();
                                 break;
-                            }else{
-
                             }
 
                         }
@@ -125,19 +123,16 @@ public class CadastrarDespesas extends AppCompatActivity {
                         valor1 = Double.parseDouble(valor.getText().toString());
 
                         for (int i=0; i<listaMeses.size();i++){
-                            if (listaMeses.get(i).getNumero() != m){
-                                Toast.makeText(getApplicationContext(), "Atenção Cadastre o Mês Referente a Despesa.", Toast.LENGTH_SHORT).show();
-                            }
-                            if (listaMeses.get(i).getNumero() == m){
-
-                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString(),m,listaMeses.get(i));
+                            if(listaMeses.get(i).getNumero() == m){
+                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString(),m,listaMeses.get(i));
                                 d.save();
+                                disp.setText("");
+                                mostra.setText("");
+                                valor.setText("");
 
                                 Toast.makeText(getApplicationContext(), "Despesa Cadastrada.", Toast.LENGTH_SHORT).show();
                                 break;
-
-                            }else{
-                               }
+                            }
                         }
 
 
@@ -151,9 +146,6 @@ public class CadastrarDespesas extends AppCompatActivity {
 
                 }
 
-                disp.setText("");
-                mostra.setText("");
-                valor.setText("");
             }
         });
 
