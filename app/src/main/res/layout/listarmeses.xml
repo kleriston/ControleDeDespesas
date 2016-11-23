@@ -5,6 +5,14 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="431dp"
         android:id="@+id/listViewMes" />
+
+    <Button
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:text="Excluir"
+        android:id="@+id/buttonExcluirMes"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

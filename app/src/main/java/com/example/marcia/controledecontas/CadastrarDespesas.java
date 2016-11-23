@@ -124,7 +124,7 @@ public class CadastrarDespesas extends AppCompatActivity {
 
                         for (int i=0; i<listaMeses.size();i++){
                             if(listaMeses.get(i).getNumero() == m){
-                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, pendente.getText().toString(),m,listaMeses.get(i));
+                                Despesas d = new Despesas(disp.getText().toString(), valor1, data, ok.getText().toString(),m,listaMeses.get(i));
                                 d.save();
                                 disp.setText("");
                                 mostra.setText("");
