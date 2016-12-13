@@ -149,8 +149,7 @@ public class Listar extends AppCompatActivity {
                                 Despesas    desp= Despesas.findById(Despesas.class, listaDespesasOK.get(position).getId());
                                 desp.delete();
                                 Toast.makeText(getApplicationContext(), "Despesa Deletada.", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(Listar.this, ListarMeses.class);
-                                startActivity(i);
+
                             }
                         });
                         AlertDialog alertaDialogDelete = alertaDelete.create();
@@ -213,7 +212,7 @@ public class Listar extends AppCompatActivity {
                                 Despesas    desp= Despesas.findById(Despesas.class, listaDespesasPendentes.get(position).getId());
                                 desp.delete();
                                 Toast.makeText(getApplicationContext(), "Despesa Deletada.", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(Listar.this, ListarMeses.class);
+                                Intent i = new Intent(Listar.this, Principal.class);
                                 startActivity(i);
                             }
                         });

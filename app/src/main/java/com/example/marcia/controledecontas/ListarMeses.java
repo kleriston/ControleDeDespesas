@@ -2,10 +2,10 @@ package com.example.marcia.controledecontas;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -78,9 +78,10 @@ public class ListarMeses extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                List<Despesas> teste = new ArrayList<>();
+
 
                 String posicao;
+
                 Intent i = new Intent(ListarMeses.this, Listar.class);
                 i.putExtra("posicao", listaMeses.get(position).getId().toString());
                 startActivity(i);
@@ -94,12 +95,10 @@ public class ListarMeses extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
 
-                view.setBackgroundColor(getResources().getColor(R.color.dark));
-                view.setSelected(true);
+
 
                 teste.add(listaMeses.get(position));
 
-                id = listaMeses.get(position).getId();
 
 
                 botaoDeletar.setOnClickListener(new View.OnClickListener() {
@@ -135,6 +134,14 @@ public class ListarMeses extends AppCompatActivity {
                         alertaDialog.show();
                     }
                 });
+                view.setBackgroundColor(getResources().getColor(R.color.dark));
+                view.setSelected(true);
+                View v = view;
+
+                android.widget.PopupMenu popup = new android.widget.PopupMenu(ListarMeses.this, v);
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.menu_principal, popup.getMenu());
+                popup.show();
                 return true;
             }
         });

@@ -183,8 +183,6 @@ public class Atualizar extends ActionBarActivity{
                 valor.setText("");
                 desp.setText("");
                 mostra.setText("");
-                Intent i = new Intent(Atualizar.this, ListarMeses.class);
-                startActivity(i);
 
 
 
